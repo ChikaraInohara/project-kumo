@@ -3,18 +3,22 @@
 ![Status](https://img.shields.io/badge/Status-Alpha_v0.1.0-orange?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-**"Proxmox for Everyone."**
+**An IaaS Frontend for Proxmox VE.**
 
-Project Kumo is a modern, simplified cloud management dashboard for **Proxmox VE**. It aims to provide an intuitive interface for developers and IT administrators to manage their virtual infrastructure without navigating the complexity of the default Proxmox GUI.
+Project Kumo is a client-facing control panel designed for **Infrastructure as a Service (IaaS)** providers or IT administrators who need to lend resources to end-users.
 
-> 🚧 **Note:** This project is currently in **Alpha (v0.1.0)**. Use with caution in production environments.
+It allows users to manage their assigned VMs and Networks within specific roles **without granting them direct access to the backend Proxmox host or cluster**, ensuring security and isolation.
 
-## ✨ Features (v0.1.0)
+> 🚧 **Note:** This project is currently in **Alpha (v0.1.0)**.
 
-- **🖥️ VM & Container List:** View all your QEMU VMs and LXC Containers across nodes in one dashboard.
-- **⚡ Power Control:** Start and Shutdown VMs directly from the UI.
-- **🔄 Real-time Status:** Polling mechanism updates VM status (CPU, Memory, Power) every 5 seconds.
-- **🐳 Dockerized:** Fully containerized architecture for easy deployment.
+## ✨ Key Features
+
+- **🛡️ Backend Isolation:** End-users interact only with Kumo's API. The underlying Proxmox host/cluster is completely hidden from the client.
+- **👥 Role-Based Management:** Users can manage only the resources (VMs, IPs, VLANs) assigned to their contract/role.
+- **⚡ Self-Service Portal:**
+  - **Power Control:** Start, Stop, and Reboot VMs.
+  - **Network Config:** Edit allowed Network interfaces and IP addresses (planned).
+  - **Console Access:** Secure NoVNC access via the browser (planned).
 
 ## 🛠️ Tech Stack
 
@@ -23,8 +27,6 @@ Project Kumo is a modern, simplified cloud management dashboard for **Proxmox VE
 - **Infrastructure:** Docker, Docker Compose
 
 ## 🚀 Getting Started
-
-You can run Project Kumo on your local machine or a server using Docker Compose.
 
 ### Prerequisites
 - Docker & Docker Compose installed.
