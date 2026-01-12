@@ -1,0 +1,16 @@
+# ベースイメージ（軽量なPythonを使用）
+FROM python:3.11-slim
+
+# 作業ディレクトリ設定
+WORKDIR /app
+
+# 依存関係のインストール
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# コードはDocker Composeのボリューム機能で同期するので、ここではコピーしない手もあるが、
+# ビルド時にも入れるのが一般的
+COPY . .
+
+# 開発サーバー起動（--reload でコード変更を即座に反映）
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
